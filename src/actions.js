@@ -1,9 +1,4 @@
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable no-useless-escape */
-/* eslint-disable comma-spacing */
-/* eslint-disable no-underscore-dangle */
-
-// const d = new Date();
+const slug = require('slugify');
 
 // some helper functions iso mixin
 function RemovePrefix(str) {
@@ -70,7 +65,7 @@ const actions = {
       if (quad) {
         dispatch('AddFilteredQuad', quad);
       } else if (error) {
-        this._vm.log(error);
+        console.log(error);
       } else {
         dispatch('WriteTTL');
         commit('stopProcessing');
@@ -152,7 +147,6 @@ const actions = {
     if (!obj.hasIdentifier || !obj.hasIdentifier.length || obj.hasIdentifier.includes('')) {
       if (Array.isArray(obj.hasIdentifier) && obj.hasIdentifier.includes('')) obj.hasIdentifier.shift();
       // eslint-disable-next-line
-      const slug = require('slugify');
       let genId;
       this._vm.$log('IDobj', obj);
       switch (schema.title.toLowerCase()) {

@@ -1,7 +1,3 @@
-/* eslint no-console: ['error', { allow: ['log'] }] */
-/* eslint no-param-reassign: ["error", { "props": false }] */
-/* eslint-disable no-underscore-dangle */
-
 const mutations = {
   /*
     fetch all subjects and corresponding objects for wich the predicate is
