@@ -84,7 +84,6 @@ const actions = {
       null,
       null,
     );
-    this._vm.$log(`${quads.length} quads found!`, quads);
     for (let i = 0; i < quads.length; i += 1) {
       dispatch('RemoveQuad', quads[i]);
     }
@@ -134,7 +133,6 @@ const actions = {
      saving it to the N3.js store */
   ObjectToStore({ state, commit, dispatch }, { schema, obj, id }) {
     const subject = id || `_:${schema.title.toLowerCase()}_${Date.now().valueOf().toString(36)}`;
-    this._vm.$log('ObjectToStore (schema, obj, id)', schema, obj, id);
     commit('startProcessing', 'Loading Object to Store...');
     // first quad for type
     const first = {
@@ -148,7 +146,6 @@ const actions = {
       if (Array.isArray(obj.hasIdentifier) && obj.hasIdentifier.includes('')) obj.hasIdentifier.shift();
       // eslint-disable-next-line
       let genId;
-      this._vm.$log('IDobj', obj);
       switch (schema.title.toLowerCase()) {
         case 'person':
           if (obj.hasFirstName[0] && obj.hasLastName[0]) genId = `${obj.hasFirstName[0].charAt(0).toLowerCase()}${obj.hasLastName[0]}`;
