@@ -1,0 +1,13 @@
+{
+  "name": "acdh-vue-n3",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "module": "./index.js",
+  "unpkg": "./index.js",
+  "description": "A module implementing n3 functions in vue, using vuex",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Robin Kaggl, Lukas Mörtl, Christoph Hoffmann",
+  "license": "ISC"
+}
