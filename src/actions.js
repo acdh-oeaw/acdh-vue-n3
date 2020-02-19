@@ -24,7 +24,7 @@ const urlpattern = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?
 const newobjpattern = /_:.*/;
 
 
-const actions = {
+export default {
   /* Adds quad to Store
      for internal use only, does not update exposed props! */
   AddQuad({ state, commit }, quad) {
@@ -214,12 +214,9 @@ const actions = {
     return subject;
   },
   WriteTTL({ state, commit }) {
-    const quads = state.store.getQuads();
-    state.writer.addQuads(quads);
-    state.writer.end((error, result) => {
-      commit('updateTtlString', result);
-      commit('resetWriter');
-    });
+    const tempWriter = new state.module.Writer(null, { prefixes: state.prefixes });
+    tempWriter.addQuads(state.store.getQuads());
+    tempWriter.end((error, result) => commit('updateTtlString', result));
   },
   ConstructN3({ state, commit, dispatch }, { pState }) {
     this._vm.$info('ConstructN3({ pState })', JSON.stringify(pState));
@@ -227,5 +224,3 @@ const actions = {
     dispatch('StringToStore', ttlString);
   },
 };
-
-export default actions;

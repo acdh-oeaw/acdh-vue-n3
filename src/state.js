@@ -5,14 +5,12 @@ const prefixes = {
 
 const N3 = require('n3');
 
-
-
-const state = {
+export default {
   prefixes,
   module: N3,
   store: new N3.Store(),
   parser: new N3.Parser(),
-  writer: new N3.Writer(null, { prefixes }),
+  // writer: new N3.Writer(null, { prefixes }), // reminiscence of an ancient technique we used, which since has stopped working
   processing: false,
   processingMessage: '',
   ttlString: '',
@@ -21,5 +19,3 @@ const state = {
   stored: true,
   update: 0,
 };
-
-export default state;

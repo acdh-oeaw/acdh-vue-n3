@@ -1,4 +1,4 @@
-const mutations = {
+export default {
   /*
     fetch all subjects and corresponding objects for wich the predicate is
     http://www.w3.org/1999/02/22-rdf-syntax-ns#type and cache them
@@ -20,12 +20,13 @@ const mutations = {
     s.ttlString = ttlString;
     s.ttlLength = s.ttlString.length;
   },
-  resetWriter(s) {
-    s.writer = s.module.Writer(null, { prefixes: s.prefixes });
-  },
+  /*
+    resetWriter(s) {
+      console.log('store', s);
+      s.writer = s.module.Writer(null, { prefixes: s.prefixes });
+    },
+  */
   updateStorageStatus(s, bool) {
     s.stored = bool;
   },
 };
-
-export default mutations;

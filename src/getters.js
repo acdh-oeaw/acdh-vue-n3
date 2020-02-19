@@ -1,7 +1,7 @@
 /* eslint no-param-reassign: ["error", { "props": false }] */
 /* eslint no-console: ["error", { allow: ["log"] }] */
 
-const getters = {
+export default {
   getQuads: s => p => s.store.getQuads(p.subject, p.predicate, p.object, p.graph),
   getArcheTitle: (s, g) => (subject) => {
     const type = g.getType(subject);
@@ -64,5 +64,3 @@ const getters = {
   getUpdate: s => s.update,
   getTtlString: s => s.ttlString,
 };
-
-export default getters;
